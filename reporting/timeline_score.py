@@ -49,6 +49,8 @@ def display_timeline_with_scores(timeline, user=None):
         if store != (item[1], item[2]):
             store = (item[1], item[2])
             n = 5
+        if item[1] == 1:
+            n = 0
         if not user:
             print(*item, n)
         elif item[0] == user:
