@@ -14,7 +14,8 @@ class Ferry:
     def __init__(self):
         self._x = 0
         self._y = 0
-        self._forward = self.move_east
+        self._vector_x = 1
+        self._vector_y = 0
 
     def move_east(self, units):
         self._x += units
@@ -33,7 +34,8 @@ class Ferry:
         return
 
     def forward(self, units):
-        self._forward(units)
+        self._x += self._vector_x * units
+        self._y += self._vector_y * units
         return
 
     def rotate_clockwise(self, degrees):
@@ -45,13 +47,9 @@ class Ferry:
         return
 
     def _rotate(self, degrees):
-        mapping = {self.move_east: self.move_south,
-                   self.move_south: self.move_west,
-                   self.move_west: self.move_north,
-                   self.move_north: self.move_east}
         steps = degrees // 90
         for i in range(steps):
-            self._forward = mapping[self._forward]
+            self._vector_x, self._vector_y = self._vector_y, -self._vector_x
         return
 
     @property
