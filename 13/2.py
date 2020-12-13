@@ -20,7 +20,7 @@ def main():
         while (n + j) % num != 0:
             n += step
         step *= num
-    print(n)
+    print(n+1)
     return
 
 
