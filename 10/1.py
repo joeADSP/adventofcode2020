@@ -1,7 +1,7 @@
 
 
 def load_data():
-    with open('data.txt', 'r') as f:
+    with open('practice_data1.txt', 'r') as f:
         data = f.read().splitlines()
     return data
 
